@@ -25,7 +25,7 @@ table
       td
         = product.price
       td
-        = product.sum
+        = product.totalprice
       td
         = product.unit
       td
@@ -38,3 +38,5 @@ table
         = link_to 'Edit', edit_product_path(product)
       td
         = link_to 'Destroy', product_path(product), method: :delete, data: {confirm: 'Are you sure?'}
+br
+= link_to 'New product' , new_product_path

@@ -1,0 +1,31 @@
+p
+  strong
+    | Title:
+  = @product.title
+p
+  strong
+    | Quantity:
+  = @product.quantity
+p
+  strong
+    | Price:
+  = @product.price
+p
+  strong
+    | Sum:
+  = @product.price * @product.quantity
+p
+  strong
+    | Unit:
+  = @product.unit
+p
+  strong
+    | Comment:
+  = @product.comment
+p
+  strong
+    | Supplier:
+  = @product.supplier
+= link_to 'Edit', edit_product_path
+br
+= link_to 'Back', products_path

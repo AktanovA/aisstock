@@ -1,0 +1,40 @@
+h1
+  | Listing products
+table
+  tr
+    th
+      | Title
+    th
+      | Quantity
+    th
+      | Price
+    th
+      | Sum
+    th
+      | Unit
+    th
+      | Comment
+    th
+      | Supplier
+  - @products.each do |product|
+    tr
+      td
+        = product.title
+      td
+        = product.quantity
+      td
+        = product.price
+      td
+        = product.sum
+      td
+        = product.unit
+      td
+        = product.comment
+      td
+        = product.supplier
+      td
+        = link_to 'Show', product_path(product)
+      td
+        = link_to 'Edit', edit_product_path(product)
+      td
+        = link_to 'Destroy', product_path(product), method: :delete, data: {confirm: 'Are you sure?'}

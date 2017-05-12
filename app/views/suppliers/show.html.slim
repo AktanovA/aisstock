@@ -1,0 +1,15 @@
+p
+  strong
+    | Title:
+  = @supplier.title
+p
+  strong
+    | Address:
+  = @supplier.address
+p
+  strong
+    | Comment:
+  = @supplier.comment
+= link_to 'Edit', edit_supplier_path
+br
+= link_to 'Back', suppliers_path

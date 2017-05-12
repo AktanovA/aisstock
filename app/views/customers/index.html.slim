@@ -1,0 +1,26 @@
+h1
+  | Listing customers
+table
+  tr
+    th
+      | Title
+    th
+      | Address
+    th
+      | TIN
+  - @customers.each do |customer|
+    tr
+      td
+        = customer.title
+      td
+        = customer.address
+      td
+        = customer.tin
+      td
+        = link_to 'Show', customer_path(customer)
+      td
+        = link_to 'Edit', edit_customer_path(customer)
+      td
+        = link_to 'Destroy', customer_path(customer), method: :delete, data: {confirm: 'Are you sure?'}
+br
+= link_to 'New customer' , new_customer_path

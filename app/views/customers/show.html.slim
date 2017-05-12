@@ -1,0 +1,15 @@
+p
+  strong
+    | Title:
+  = @customer.title
+p
+  strong
+    | Address:
+  = @customer.address
+p
+  strong
+    | TIN:
+  = @customer.tin
+= link_to 'Edit', edit_customer_path
+br
+= link_to 'Back', customers_path

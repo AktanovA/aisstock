@@ -16,6 +16,8 @@ table
       | Comment
     th
       | Supplier
+    th
+      | Status
   - @products.each do |product|
     tr
       td
@@ -32,6 +34,8 @@ table
         = product.comment
       td
         = product.supplier
+      td
+        = product.aasm.current_state
       td
         = link_to 'Show', product_path(product)
       td

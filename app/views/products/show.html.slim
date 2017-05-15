@@ -26,6 +26,11 @@ p
   strong
     | Supplier:
   = @product.supplier
+p
+  strong
+    | Status:
+  = @product.aasm.current_state
 = link_to 'Edit', edit_product_path
 br
 = link_to 'Back', products_path
+

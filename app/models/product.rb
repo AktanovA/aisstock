@@ -7,7 +7,7 @@ class Product < ApplicationRecord
   include AASM
   aasm do
     state :ordering, :initial => true
-    state :accepting, :quality_checking, :placing, :assembling, :shipping, :returning_to_supplier
+    state :accepting, :quality_checking, :placing, :assembling, :shipping, :returning_to_supplier, :delivered
 
     event :acceptance do
       transitions :from => :ordering, :to => :accepting
@@ -27,6 +27,10 @@ class Product < ApplicationRecord
 
     event :shipped do
       transitions :from => [:assembling, :returning_to_supplier], :to => :shipping
+    end
+
+    event :delivery do
+      transitions :from => :shipping, :to => :delivered
     end
   end
 

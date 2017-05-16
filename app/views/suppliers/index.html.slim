@@ -1,6 +1,6 @@
 h1
   | Listing suppliers
-table
+table.table
   tr
     th
       | Title
@@ -8,6 +8,10 @@ table
       | Address
     th
       | Comment
+    th
+      | Actions
+    th
+    th
   - @suppliers.each do |supplier|
     tr
       td
@@ -17,10 +21,13 @@ table
       td
         = supplier.comment
       td
-        = link_to 'Show', supplier_path(supplier)
+        .btn.btn-default
+          = link_to 'Show', supplier_path(supplier)
       td
-        = link_to 'Edit', edit_supplier_path(supplier)
+        .btn.btn-default
+          = link_to 'Edit', edit_supplier_path(supplier)
       td
-        = link_to 'Destroy', supplier_path(supplier), method: :delete, data: {confirm: 'Are you sure?'}
+        .btn.btn-default
+          = link_to 'Destroy', supplier_path(supplier), method: :delete, data: {confirm: 'Are you sure?'}
 br
 = link_to 'New supplier' , new_supplier_path

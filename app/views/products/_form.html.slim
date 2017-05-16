@@ -8,32 +8,13 @@
         - @product.errors.full_messages.each do |msg|
           li
             = msg
-    p
-    = f.label :title
-    br
-    = f.text_field :title
-    p
-    = f.label :quantity
-    br
-    = f.text_field :quantity
-    p
-    = f.label :price
-    br
-    = f.text_field :price
-    p
-    = f.label :unit
-    br
+    = f.input :title, label: "Название продукта", placeholder: "Введите продукт"
+    = f.input :quantity, label: "Количество", placeholder: "Введите количество продукта"
+    = f.input :price, label: "Цена", placeholder: "Введите цену продукта"
     = f.select :unit, Product.units.keys
-    p
-    = f.label :comment
-    br
-    = f.text_field :comment 
-    p
-    = f.select :aasm_state, @product.aasm.states(:permitted => true).map(&:name)
-    br
-    p
-    = f.label :supplier
-    br
-    = f.text_field :supplier
-    p
-    = f.submit
+    = f.input :comment, label: "Комментарий", placeholder: "Введите ваш комментарий"
+    -unless current_page?(new_product_path)
+      -unless @product.aasm_state == "delivered"
+        = f.select :aasm_state, @product.aasm.states(:permitted => true).map(&:name)
+    = f.input :supplier, label: "Поставщик товара", placeholder: "Введите имя поставщика товара"
+    = f.button :submit

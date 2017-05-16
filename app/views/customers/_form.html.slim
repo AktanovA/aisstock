@@ -8,17 +8,7 @@
         - @customer.errors.full_messages.each do |msg|
           li
             = msg
-    p
-    = f.label :title
-    br
-    = f.text_field :title
-    p
-    = f.label :address
-    br
-    = f.text_field :address
-    p
-    = f.label :tin
-    br
-    = f.text_field :tin
-    p
-    = f.submit
+    = f.input :title
+    = f.input :address
+    = f.input :tin
+    = f.button :submit

@@ -34,6 +34,17 @@ class Product < ApplicationRecord
     end
   end
 
+  scope :book, -> { where(aasm_state: 'ordering') }
+  scope :quality, -> { where(aasm_state: 'quality_checking') }
+  scope :place, -> { where(aasm_state: 'placing') }
+  scope :assembly, -> { where(aasm_state: 'assembling') }
+  scope :accept, -> { where(aasm_state: 'accepting') }
+  scope :shipment, -> { where(aasm_state: 'shipping') }
+  scope :return_to_supplier, -> { where(aasm_state: 'returning_to_supplier') }
+  scope :transported, -> { where(aasm_state: 'delivered') }
+
+
+
     def totalprice
     	quantity * price
     end

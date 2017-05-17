@@ -4,7 +4,6 @@ class ProductsController < ApplicationController
 		@products = Product.all
 	end
 
-
 	def show
 		@product = Product.find(params[:id])
 	end
@@ -46,6 +45,6 @@ class ProductsController < ApplicationController
 
 	private
   		def product_params
-    		params.require(:product).permit(:title, :quantity, :price, :sum, :comment, :supplier, :unit, :aasm_state)
+    		params.require(:product).permit(:title, :quantity, :price, :sum, :comment, :supplier, :unit, :aasm_state, :state)
 		end
 end

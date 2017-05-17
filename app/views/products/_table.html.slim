@@ -22,7 +22,7 @@ table.table
       | Actions
     ths
     th
-  - @products.each do |product|
+  - Product.all.try(state.to_sym).each do |product|
       tr
         td
           = product.title

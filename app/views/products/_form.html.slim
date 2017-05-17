@@ -13,7 +13,7 @@
     = f.input :price, label: "Цена", placeholder: "Введите цену продукта"
     = f.select :unit, Product.units.keys
     = f.input :comment, label: "Комментарий", placeholder: "Введите ваш комментарий"
-    -unless current_page?(new_product_path)
+    -unless current_page?('new_product_path')
       -unless @product.aasm_state == "delivered"
         = f.select :aasm_state, @product.aasm.states(:permitted => true).map(&:name)
     = f.input :supplier, label: "Поставщик товара", placeholder: "Введите имя поставщика товара"

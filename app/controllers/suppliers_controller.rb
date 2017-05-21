@@ -43,7 +43,7 @@ class SuppliersController < ApplicationController
     redirect_to suppliers_path
   end
  
-  private
+
     def supplier_params
       params.require(:supplier).permit(:title, :address, :comment)
     end

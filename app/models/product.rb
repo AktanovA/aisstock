@@ -1,9 +1,9 @@
 class Product < ApplicationRecord
-	
+	belongs_to :customer
+  belongs_to :supplier
 	validates :title, presence: true,
                     length: { minimum: 4, maximum: 25}
-  validates :quantity, :price, :supplier, presence: true
-
+  validates :quantity, :price, presence: true
   include AASM
   aasm do
     state :ordering, :initial => true

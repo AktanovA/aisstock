@@ -22,7 +22,7 @@ class ProductsController < ApplicationController
 		if @product.save
 			redirect_to @product
 		else
-			render 'new'
+			render '/products/new'
 		end
 	end
 
@@ -45,6 +45,6 @@ class ProductsController < ApplicationController
 
 	private
   		def product_params
-    		params.require(:product).permit(:title, :quantity, :price, :sum, :comment, :supplier, :unit, :aasm_state, :state)
+    		params.require(:product).permit(:title, :quantity, :price, :sum, :comment, :supplier_id, :customer_id, :unit, :aasm_state, :state)
 		end
 end

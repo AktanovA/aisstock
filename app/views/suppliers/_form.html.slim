@@ -1,7 +1,7 @@
 = simple_form_for @supplier do |f|
     - if @supplier.errors.any?
       #error_explanation
-      h2
+      h4
         = pluralize(@supplier.errors.count, "error")
         |  prohibited this product from being saved: 
       ul

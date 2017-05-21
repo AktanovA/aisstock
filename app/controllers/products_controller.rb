@@ -2,6 +2,12 @@ class ProductsController < ApplicationController
 	
 	def index
 		@products = Product.all
+		respond_to do |format|
+  		format.html
+  		format.pdf do
+    		render  pdf: "report"
+  		end
+		end
 	end
 
 	def show
@@ -32,7 +38,7 @@ class ProductsController < ApplicationController
  		if @product.update(product_params)
    			redirect_to @product
   		else
-    		render 'edit'
+    		render '/products/new'
   		end
 	end
 

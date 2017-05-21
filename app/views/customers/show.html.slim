@@ -1,15 +1,19 @@
-p
-  strong
-    | Title:
-  = @customer.title
-p
-  strong
-    | Address:
-  = @customer.address
-p
-  strong
-    | TIN:
-  = @customer.tin
-= link_to 'Edit', edit_customer_path
-br
-= link_to 'Back', customers_path
+.form-group
+  p
+    strong
+      | Название:
+    = @customer.title
+.form-group
+  p
+    strong
+      | Адрес:
+    = @customer.address
+.form-group
+  p
+    strong
+      | Расчётный счёт:
+    = @customer.tin
+.btn.btn-default
+	= link_to 'Изменить', edit_customer_path
+.btn.btn-default
+	= link_to 'Вернутся назад', customers_path

@@ -1,28 +1,30 @@
 h1
-  | Listing all products
+  | Список всех продуктов
 h4
-  | Products with all statuses
+  | Продукты со всеми статусами
 table.table
   tr
     th
-      | Title
+      | Название
     th
-      | Quantity
+      | Количество
     th
-      | Price
+      | Цена
     th
-      | Sum
+      | Сумма
     th
-      | Unit
+      | Еденица измерения
     th
-      | Comment
+      | Комментарий
     th
-      | Supplier
+      | Поставщик
     th
-      | Status
+      | Заказчик
     th
-      | Actions
-    ths
+      | Статус продукта
+    th
+      | Действия
+    th
     th
     th
   - @products.each do |product|
@@ -42,16 +44,20 @@ table.table
         td
           = product.supplier.title
         td
+          = product.customer.title
+        td
           = product.aasm.current_state
         td
           .btn.btn-default
-            = link_to 'Show', product_path(product)
+            = link_to 'Показать', product_path(product)
         td
           .btn.btn-default
-            = link_to 'Edit', edit_product_path(product)
+            = link_to 'Изменить', edit_product_path(product)
         td
           .btn.btn-default
-            = link_to 'Destroy', product_path(product), method: :delete, data: {confirm: 'Are you sure?'}
+            = link_to 'Удалить', product_path(product), method: :delete, data: {confirm: 'Are you sure?'}
 br
 .btn.btn-default
-  = link_to 'New product' , new_product_path
+  = link_to 'Новый продукт' , new_product_path
+.btn.btn-default
+  = link_to 'Экспорт в PDF', products_path(format: :pdf)

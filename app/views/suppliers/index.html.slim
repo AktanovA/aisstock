@@ -1,15 +1,15 @@
 h1
-  | Listing suppliers
+  | Список поставщиков
 table.table
   tr
     th
-      | Title
+      | Название
     th
-      | Address
+      | Адрес
     th
-      | Comment
+      | Комментарий
     th
-      | Actions
+      | Действия
     th
     th
   - @suppliers.each do |supplier|
@@ -22,12 +22,13 @@ table.table
         = supplier.comment
       td
         .btn.btn-default
-          = link_to 'Show', supplier_path(supplier)
+          = link_to 'Показать', supplier_path(supplier)
       td
         .btn.btn-default
-          = link_to 'Edit', edit_supplier_path(supplier)
+          = link_to 'Изменить', edit_supplier_path(supplier)
       td
         .btn.btn-default
-          = link_to 'Destroy', supplier_path(supplier), method: :delete, data: {confirm: 'Are you sure?'}
+          = link_to 'Удалить', supplier_path(supplier), method: :delete, data: {confirm: 'Are you sure?'}
 br
-= link_to 'New supplier' , new_supplier_path
+.btn.btn-default
+  = link_to 'Создать поставщика' , new_supplier_path

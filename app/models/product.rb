@@ -6,47 +6,47 @@ class Product < ApplicationRecord
   validates :quantity, :price, presence: true
   include AASM
   aasm do
-    state :ordering, :initial => true
-    state :accepting, :quality_checking, :placing, :assembling, :shipping, :returning_to_supplier, :delivered
+    state :Заказ, :initial => true
+    state :Принятие, :КонтрольКачества, :Размещенный, :Сборка, :Отправка, :ВозвратПоставщику, :Доставлено
 
     event :acceptance do
-      transitions :from => :ordering, :to => :accepting
+      transitions :from => :Заказ, :to => :Принятие
     end
 
     event :qualitycheck do
-      transitions :from => :accepting, :to => :quality_checking
+      transitions :from => :Принятие, :to => :КонтрольКачества
     end
 
     event :placed do
-      transitions :from => :quality_checking, :to => [:placing, :returning_to_supplier]
+      transitions :from => :КонтрольКачества, :to => [:Размещенный, :ВозвратПоставщику]
     end
 
     event :assemblage do
-      transitions :from => :placing, :to => :assembling
+      transitions :from => :Размещенный, :to => :Сборка
     end
 
     event :shipped do
-      transitions :from => [:assembling, :returning_to_supplier], :to => :shipping
+      transitions :from => [:Сборка, :ВозвратПоставщику], :to => :Отправка
     end
 
     event :delivery do
-      transitions :from => :shipping, :to => :delivered
+      transitions :from => :Отправка, :to => :Доставлено
     end
   end
 
-  scope :book, -> { where(aasm_state: 'ordering') }
-  scope :quality, -> { where(aasm_state: 'quality_checking') }
-  scope :place, -> { where(aasm_state: 'placing') }
-  scope :assembly, -> { where(aasm_state: 'assembling') }
-  scope :accept, -> { where(aasm_state: 'accepting') }
-  scope :shipment, -> { where(aasm_state: 'shipping') }
-  scope :return_to_supplier, -> { where(aasm_state: 'returning_to_supplier') }
-  scope :transported, -> { where(aasm_state: 'delivered') }
+  scope :book, -> { where(aasm_state: 'Заказ') }
+  scope :quality, -> { where(aasm_state: 'КонтрольКачества') }
+  scope :place, -> { where(aasm_state: 'Размещенный') }
+  scope :assembly, -> { where(aasm_state: 'Сборка') }
+  scope :accept, -> { where(aasm_state: 'Принятие') }
+  scope :shipment, -> { where(aasm_state: 'Отправка') }
+  scope :return_to_supplier, -> { where(aasm_state: 'ВозвратПоставщику') }
+  scope :transported, -> { where(aasm_state: 'Доставлено') }
 
 
 
     def totalprice
     	quantity * price
     end
-	enum unit: [:Pieces, :Kg]
+	enum unit: [:Штук, :Кг]
 end

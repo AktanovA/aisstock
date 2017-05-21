@@ -1,15 +1,15 @@
 h1
-  | Listing customers
+  | Список заказчиков
 table.table
   tr
     th
-      | Title
+      | Название
     th
-      | Address
+      | Адрес
     th
-      | TIN
+      | Расчётный счёт
     th
-      | Actions
+      | Действия
     th
     th
   - @customers.each do |customer|
@@ -22,12 +22,13 @@ table.table
         = customer.tin
       td
         .btn.btn-default
-          = link_to 'Show', customer_path(customer)
+          = link_to 'Показать', customer_path(customer)
       td
         .btn.btn-default
-          = link_to 'Edit', edit_customer_path(customer)
+          = link_to 'Изменить', edit_customer_path(customer)
       td
         .btn.btn-default
-          = link_to 'Destroy', customer_path(customer), method: :delete, data: {confirm: 'Are you sure?'}
+          = link_to 'Удалить', customer_path(customer), method: :delete, data: {confirm: 'Are you sure?'}
 br
-= link_to 'New customer' , new_customer_path
+.btn.btn-default
+  = link_to 'Создать' , new_customer_path

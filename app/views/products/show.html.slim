@@ -2,50 +2,50 @@ form
 .form-group
   p
     strong
-      | Title:
+      | Название:
     = @product.title
 .form-group
   p
     strong
-      | Quantity:
+      | Количество:
     = @product.quantity
 .form-group
   p
     strong
-      | Price:
+      | Цена:
     = @product.price
 .form-group
   p
     strong
-      | Sum:
+      | Сумма:
     = @product.totalprice
 .form-group
   p
     strong
-      | Unit:
+      | Еденица измерения:
     = @product.unit
 .form-group
   p
     strong
-      | Comment:
+      | Комментарий:
     = @product.comment
 .form-group
   p
     strong
-      | Supplier:
+      | Поставщик:
     = @product.supplier.title
 .form-group
   p
     strong
-      | Customer:
+      | Заказчик:
     = @product.customer.title
 .form-group
   p
     strong
-      | Status:
+      | Статус продукта:
     = @product.aasm.current_state
 .form-group
-  = link_to 'Edit', edit_product_path
+  = link_to 'Изменить', edit_product_path
   br
-  = link_to 'Back', products_path
+  = link_to 'Вернуться ко всему списку', products_path
 

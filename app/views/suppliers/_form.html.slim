@@ -8,7 +8,7 @@
         - @supplier.errors.full_messages.each do |msg|
           li
             = msg
-    = f.input :title
-    = f.input :address
-    = f.input :comment
-    = f.button :submit
+    = f.input :title, label: 'Название' , placeholder: 'Название компании'
+    = f.input :address, label: 'Адрес', placeholder: 'Адрес регистрации компании поставщика'
+    = f.input :comment, label: 'Комментарий', placeholder: 'Комментарий о поставщике'
+    = f.button :submit, 'Создать'

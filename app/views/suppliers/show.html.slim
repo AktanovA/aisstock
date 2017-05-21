@@ -1,15 +1,16 @@
 p
   strong
-    | Title:
+    | Название:
   = @supplier.title
 p
   strong
-    | Address:
+    | Адрес:
   = @supplier.address
 p
   strong
-    | Comment:
+    | Комментарий:
   = @supplier.comment
-= link_to 'Edit', edit_supplier_path
-br
-= link_to 'Back', suppliers_path
+.btn.btn-default
+	= link_to 'Изменить', edit_supplier_path
+.btn.btn-default
+	= link_to 'Вернутся назад', suppliers_path

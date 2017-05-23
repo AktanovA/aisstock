@@ -10,7 +10,5 @@ p
   strong
     | Комментарий:
   = @supplier.comment
-.btn.btn-default
-	= link_to 'Изменить', edit_supplier_path
-.btn.btn-default
-	= link_to 'Вернутся назад', suppliers_path
+= link_to 'Изменить', edit_supplier_path, class: 'btn btn-default'
+= link_to 'Вернутся назад', suppliers_path, class: 'btn btn-default'

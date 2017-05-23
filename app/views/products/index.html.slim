@@ -1,15 +1,25 @@
-h1
-  | Список всех продуктов
-h4
-  | Продукты со всеми статусами
+.row
+  .col-sm-4
+    h1
+      | Список всех продуктов
+    h4
+      | Продукты со всеми статусами
+  .col-sm-4
+  .col-sm-4
+    h3
+      | Поиск:
+    = search_form_for @q do |f|
+      = f.search_field :title_cont
+      = f.submit 'Поиск', class: 'btn btn-default'
+      = link_to 'Сбросить поиск', products_path, class: 'btn btn-default'
 table.table
   tr
     th
-      | Название
+      = sort_link @q, :title, "Название"
     th
-      | Количество
+      = sort_link @q, :quantity, "Количество"
     th
-      | Цена
+      = sort_link @q, :price, "Цена"
     th
       | Сумма
     th
@@ -48,16 +58,11 @@ table.table
         td
           = product.aasm.current_state
         td
-          .btn.btn-default
-            = link_to 'Показать', product_path(product)
+            = link_to 'Показать', product_path(product), class: 'btn btn-default'
         td
-          .btn.btn-default
-            = link_to 'Изменить', edit_product_path(product)
+            = link_to 'Изменить', edit_product_path(product), class: 'btn btn-default'
         td
-          .btn.btn-default
-            = link_to 'Удалить', product_path(product), method: :delete, data: {confirm: 'Are you sure?'}
+            = link_to 'Удалить', product_path(product), method: :delete, data: {confirm: 'Are you sure?'}, class: 'btn btn-default'
 br
-.btn.btn-default
-  = link_to 'Новый продукт' , new_product_path
-.btn.btn-default
-  = link_to 'Экспорт в PDF', products_path(format: :pdf)
+  = link_to 'Новый продукт' , new_product_path, class: 'btn btn-default'
+  = link_to 'Экспорт в PDF', products_path(format: :pdf), class: 'btn btn-default'

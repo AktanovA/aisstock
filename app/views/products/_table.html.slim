@@ -46,14 +46,10 @@ table.table
         td
           = product.aasm.current_state
         td
-          .btn.btn-default
-            = link_to 'Посмотреть', product_path(product)
+            = link_to 'Посмотреть', product_path(product), class: 'btn btn-default'
         td
-          .btn.btn-default
-            = link_to 'Изменить', edit_product_path(product)
+            = link_to 'Изменить', edit_product_path(product), class: 'btn btn-default'
         td
-          .btn.btn-default
-            = link_to 'Удалить', product_path(product), method: :delete, data: {confirm: 'Are you sure?'}
+            = link_to 'Удалить', product_path(product), method: :delete, data: {confirm: 'Are you sure?'}, class: 'btn btn-default'
 br
-.btn.btn-default
-  = link_to 'Новый продукт' , new_product_path
+  = link_to 'Новый продукт' , new_product_path, class: 'btn btn-default'

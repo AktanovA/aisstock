@@ -21,14 +21,9 @@ table.table
       td
         = supplier.comment
       td
-        .btn.btn-default
-          = link_to 'Показать', supplier_path(supplier)
+          = link_to 'Показать', supplier_path(supplier), class: 'btn btn-default'
       td
-        .btn.btn-default
-          = link_to 'Изменить', edit_supplier_path(supplier)
+          = link_to 'Изменить', edit_supplier_path(supplier), class: 'btn btn-default'
       td
-        .btn.btn-default
-          = link_to 'Удалить', supplier_path(supplier), method: :delete, data: {confirm: 'Are you sure?'}
-br
-.btn.btn-default
-  = link_to 'Создать поставщика' , new_supplier_path
+          = link_to 'Удалить', supplier_path(supplier), method: :delete, data: {confirm: 'Are you sure?'}, class: 'btn btn-default'
+= link_to 'Создать поставщика' , new_supplier_path, class: 'btn btn-default'

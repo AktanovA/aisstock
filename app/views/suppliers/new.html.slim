@@ -1,6 +1,4 @@
 h1
   | Новый поставщик
 = render 'form'
-br
-.btn.btn-default
-	= link_to 'Вернутся назад', suppliers_path
+= link_to 'Вернутся назад', suppliers_path, class: 'btn btn-default'

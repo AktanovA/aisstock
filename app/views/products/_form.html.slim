@@ -32,4 +32,4 @@ form
           = f.label ' Статус продукта'
           = f.select :aasm_state, @product.aasm.states(:permitted => true).map(&:name), {prompt: "Выберите поставщика"}, {class: "form-control"}
     .form-group
-    = f.button :submit, 'Принять'
+    = f.button :submit, 'Принять', class: 'btn btn-default'

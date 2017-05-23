@@ -1,6 +1,4 @@
 h1
   | Создать заказчика
 = render 'form'
-br
-.btn.btn-default
-	= link_to 'Вернутся назад', customers_path
+= link_to 'Вернутся назад', customers_path, class: 'btn btn-default'

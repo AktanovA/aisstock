@@ -13,7 +13,5 @@
     strong
       | Расчётный счёт:
     = @customer.tin
-.btn.btn-default
-	= link_to 'Изменить', edit_customer_path
-.btn.btn-default
-	= link_to 'Вернутся назад', customers_path
+= link_to 'Изменить', edit_customer_path, class: 'btn btn-default'
+= link_to 'Вернутся назад', customers_path, class: 'btn btn-default'

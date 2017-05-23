@@ -45,9 +45,7 @@ form
       | Статус продукта:
     = @product.aasm.current_state
 .form-group
-.btn.btn-default
-  = link_to 'Изменить', edit_product_path
+  = link_to 'Изменить', edit_product_path, class: 'btn btn-default'
   br
-.btn.btn-default
-  = link_to 'Вернуться ко всему списку', products_path
+  = link_to 'Вернуться ко всему списку', products_path, class: 'btn btn-default'
 

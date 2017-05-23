@@ -1,4 +1,7 @@
 h1
   | Изменить продукт
-= render 'form'
-= link_to 'Вернуться ко всему списку', products_path
+.form-group
+	= render 'form' 
+.form-group
+	.btn.btn-default
+		= link_to 'Отменить изменения', products_path

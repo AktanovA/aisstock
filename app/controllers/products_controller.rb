@@ -50,6 +50,9 @@ class ProductsController < ApplicationController
 		redirect_to products_path
 	end
 
+	def statistics
+	end
+	
 	private
   		def product_params
     		params.require(:product).permit(:title, :quantity, :price, :sum, :comment, :supplier_id, :customer_id, :unit, :aasm_state, :state)

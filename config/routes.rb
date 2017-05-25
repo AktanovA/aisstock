@@ -12,5 +12,5 @@ Rails.application.routes.draw do
   	end
   end
   resources :suppliers, :customers
-  root 'welcome#index'
+  root 'products#statistics'
 end

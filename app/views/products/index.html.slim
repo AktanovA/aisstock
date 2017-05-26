@@ -1,68 +1,72 @@
-.row
-  .col-sm-4
-    h1
-      | Список всех продуктов
-    h4
-      | Продукты со всеми статусами
-  .col-sm-4
-  .col-sm-4
-    h3
-      | Поиск:
-    = search_form_for @q do |f|
-      = f.search_field :title_cont
-      = f.submit 'Поиск', class: 'btn btn-default'
-      = link_to 'Сбросить поиск', products_path, class: 'btn btn-default'
-table.table
-  tr
-    th
-      = sort_link @q, :title, "Название"
-    th
-      = sort_link @q, :quantity, "Количество"
-    th
-      = sort_link @q, :price, "Цена"
-    th
-      | Сумма
-    th
-      | Еденица измерения
-    th
-      | Комментарий
-    th
-      | Поставщик
-    th
-      | Заказчик
-    th
-      | Статус продукта
-    th
-      | Действия
-    th
-    th
-    th
-  - @products.each do |product|
-      tr
-        td
-          = product.title
-        td
-          = product.quantity
-        td
-          = product.price
-        td
-          = product.totalprice
-        td
-          = product.unit
-        td
-          = product.comment
-        td
-          = product.supplier.title
-        td
-          = product.customer.title
-        td
-          = product.aasm.current_state
-        td
-            = link_to 'Показать', product_path(product), class: 'btn btn-default'
-        td
-            = link_to 'Изменить', edit_product_path(product), class: 'btn btn-default'
-        td
-            = link_to 'Удалить', product_path(product), method: :delete, data: {confirm: 'Are you sure?'}, class: 'btn btn-default'
-br
-  = link_to 'Новый продукт' , new_product_path, class: 'btn btn-default'
-  = link_to 'Экспорт в PDF', products_path(format: :pdf), class: 'btn btn-default'
+.container-fluid
+  .row
+    .col-sm-4
+      h1
+        | Список всех продуктов
+      h4
+        | Продукты со всеми статусами
+    .col-sm-4
+    .col-sm-4
+      h3
+        | Поиск:
+      = search_form_for @q do |f|
+        = f.search_field :title_cont
+        '
+        = f.submit 'Поиск', class: 'btn btn-primary'
+        ' 
+        = link_to 'Сбросить поиск', products_path, class: 'btn btn-danger'
+  table.table
+    tr
+      th
+        = sort_link @q, :title, "Название"
+      th
+        = sort_link @q, :quantity, "Количество"
+      th
+        = sort_link @q, :price, "Цена"
+      th
+        | Сумма
+      th
+        | Еденица измерения
+      th
+        | Комментарий
+      th
+        | Поставщик
+      th
+        | Заказчик
+      th
+        | Статус продукта
+      th
+        | Действия
+      th
+      th
+      th
+    - @products.each do |product|
+        tr
+          td
+            = product.title
+          td
+            = product.quantity
+          td
+            = product.price
+          td
+            = product.totalprice
+          td
+            = product.unit
+          td
+            = product.comment
+          td
+            = product.supplier.title
+          td
+            = product.customer.title
+          td
+            = product.aasm.current_state
+          td
+              = link_to 'Показать', product_path(product), class: 'btn btn-info'
+          td
+              = link_to 'Изменить', edit_product_path(product), class: 'btn btn-warning'
+          td
+              = link_to 'Удалить', product_path(product), method: :delete, data: {confirm: 'Are you sure?'}, class: 'btn btn-danger'
+  br
+    = link_to 'Новый продукт' , new_product_path, class: 'btn btn-success'
+    '
+    = link_to 'Экспорт в PDF', products_path(format: :pdf), class: 'btn btn-info'

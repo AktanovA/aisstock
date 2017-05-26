@@ -1,17 +1,19 @@
-.form-group
-  p
-    strong
-      | Название:
-    = @customer.title
-.form-group
-  p
-    strong
-      | Адрес:
-    = @customer.address
-.form-group
-  p
-    strong
-      | Расчётный счёт:
-    = @customer.tin
-= link_to 'Изменить', edit_customer_path, class: 'btn btn-default'
-= link_to 'Вернутся назад', customers_path, class: 'btn btn-default'
+.container-fluid
+  .form-group
+    p
+      strong
+        | Название:
+      = @customer.title
+  .form-group
+    p
+      strong
+        | Адрес:
+      = @customer.address
+  .form-group
+    p
+      strong
+        | Расчётный счёт:
+      = @customer.tin
+  = link_to 'Изменить', edit_customer_path, class: 'btn btn-warning'
+  '
+  = link_to 'Вернутся назад', customers_path, class: 'btn btn-info'

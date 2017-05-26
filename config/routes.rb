@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   		get :assembly
   		get :shipping
   		get :returntosupplier
+      get :transported
   	end
   end
   resources :suppliers, :customers

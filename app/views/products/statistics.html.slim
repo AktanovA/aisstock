@@ -1,141 +1,142 @@
-h1 Статистика
+.container-fluid
+    h1 Статистика
 
 
 
-//= line_chart @data, @options
+    //= line_chart @data, @options
 
 
-#chart1 style=("height: 400px")
-#chart8 style=("height: 400px")
-#chart2 style=("height: 400px")
-#chart3 style=("height: 400px")
-javascript:
-	Highcharts.chart('chart1', {
-    title: {
-        text: 'Cтатистика добаления товаров по месяцам'
-    },
-    xAxis: {
-        categories: ['Янв', 'Фев', 'Март', 'Апр', 'Май']
-    },
-    series: [{
-    	  type: 'spline',
-        data: [15, 35, 20, 30, 10],
-        step: 'right',
-        name: 'Количество'
-    }]
-  });
-    Highcharts.chart('chart8', {
-    title: {
-        text: 'Cтатистика отправки товаров по месяцам'
-    },
-    xAxis: {
-        categories: ['Янв', 'Фев', 'Март', 'Апр', 'Май']
-    },
-    series: [{
-          type: 'spline',
-        data: [18, 30, 24, 20, 15],
-        step: 'right',
-        name: 'Количество'
-    }]
-  });
+    #chart1 style=("height: 400px")
+    #chart8 style=("height: 400px")
+    #chart2 style=("height: 400px")
+    #chart3 style=("height: 400px")
+    javascript:
+    	Highcharts.chart('chart1', {
+        title: {
+            text: 'Cтатистика добаления товаров по месяцам'
+        },
+        xAxis: {
+            categories: ['Янв', 'Фев', 'Март', 'Апр', 'Май']
+        },
+        series: [{
+        	  type: 'spline',
+            data: [15, 35, 20, 30, 10],
+            step: 'right',
+            name: 'Количество'
+        }]
+      });
+        Highcharts.chart('chart8', {
+        title: {
+            text: 'Cтатистика отправки товаров по месяцам'
+        },
+        xAxis: {
+            categories: ['Янв', 'Фев', 'Март', 'Апр', 'Май']
+        },
+        series: [{
+              type: 'spline',
+            data: [18, 30, 24, 20, 15],
+            step: 'right',
+            name: 'Количество'
+        }]
+      });
 
-  Highcharts.chart('chart2', {
-    chart: {
-        plotBackgroundColor: null,
-        plotBorderWidth: null,
-        plotShadow: false,
-        type: 'pie'
-    },
-    title: {
-        text: 'Соотношение товаров по статусу на данный момент'
-    },
-    tooltip: {
-        pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
-    },
-    plotOptions: {
-        pie: {
-            allowPointSelect: true,
-            cursor: 'pointer',
-            dataLabels: {
-                enabled: true,
-                format: '<b>{point.name}</b>: {point.percentage:.1f} %',
-                style: {
-                    color: (Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black'
+      Highcharts.chart('chart2', {
+        chart: {
+            plotBackgroundColor: null,
+            plotBorderWidth: null,
+            plotShadow: false,
+            type: 'pie'
+        },
+        title: {
+            text: 'Соотношение товаров по статусу на данный момент'
+        },
+        tooltip: {
+            pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+        },
+        plotOptions: {
+            pie: {
+                allowPointSelect: true,
+                cursor: 'pointer',
+                dataLabels: {
+                    enabled: true,
+                    format: '<b>{point.name}</b>: {point.percentage:.1f} %',
+                    style: {
+                        color: (Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black'
+                    }
                 }
             }
-        }
-    },
-    series: [{
-        name: 'Товар',
-        colorByPoint: true,
-        data: [{
-            name: 'Заказ',
-            y: 25
-        }, {
-            name: 'Размещение',
-            y: 10,
-            sliced: true,
-            selected: true
-        }, {
-            name: 'Контроль качества',
-            y: 25
-        }, {
-            name: 'Возврат поставщику',
-            y: 10
-        }, 
-        {
-            name: 'Принятие',
-            y: 6
-        }, {
-            name: 'Сборка',
-            y: 3
-        }, {
-            name: 'Размещение',
-            y: 3
-        }, {
-            name: 'Доставлено',
-            y: 6
-        }, {
-            name: 'Отправка',
-            y: 12
+        },
+        series: [{
+            name: 'Товар',
+            colorByPoint: true,
+            data: [{
+                name: 'Заказ',
+                y: 25
+            }, {
+                name: 'Размещение',
+                y: 10,
+                sliced: true,
+                selected: true
+            }, {
+                name: 'Контроль качества',
+                y: 25
+            }, {
+                name: 'Возврат поставщику',
+                y: 10
+            }, 
+            {
+                name: 'Принятие',
+                y: 6
+            }, {
+                name: 'Сборка',
+                y: 3
+            }, {
+                name: 'Размещение',
+                y: 3
+            }, {
+                name: 'Доставлено',
+                y: 6
+            }, {
+                name: 'Отправка',
+                y: 12
+            }]
         }]
-    }]
-  });
-  Highcharts.chart('chart3', {
-    chart: {
-        plotBackgroundColor: null,
-        plotBorderWidth: null,
-        plotShadow: false,
-        type: 'pie'
-    },
-    title: {
-        text: 'Соотношение заказчиков и поставщиков'
-    },
-    tooltip: {
-        pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
-    },
-    plotOptions: {
-        pie: {
-            allowPointSelect: true,
-            cursor: 'pointer',
-            dataLabels: {
-                enabled: true,
-                format: '<b>{point.name}</b>: {point.percentage:.1f} %',
-                style: {
-                    color: (Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black'
+      });
+      Highcharts.chart('chart3', {
+        chart: {
+            plotBackgroundColor: null,
+            plotBorderWidth: null,
+            plotShadow: false,
+            type: 'pie'
+        },
+        title: {
+            text: 'Соотношение заказчиков и поставщиков'
+        },
+        tooltip: {
+            pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+        },
+        plotOptions: {
+            pie: {
+                allowPointSelect: true,
+                cursor: 'pointer',
+                dataLabels: {
+                    enabled: true,
+                    format: '<b>{point.name}</b>: {point.percentage:.1f} %',
+                    style: {
+                        color: (Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black'
+                    }
                 }
             }
-        }
-    },
-    series: [{
-        name: 'Клиенты',
-        colorByPoint: true,
-        data: [{
-            name: 'Поставщики',
-            y: 34.3
-        }, {
-            name: 'Заказчики',
-            y: 65.7,
+        },
+        series: [{
+            name: 'Клиенты',
+            colorByPoint: true,
+            data: [{
+                name: 'Поставщики',
+                y: 34.3
+            }, {
+                name: 'Заказчики',
+                y: 65.7,
+            }]
         }]
-    }]
-  });
+      });

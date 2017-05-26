@@ -1,29 +1,30 @@
-h1
-  | Список поставщиков
-table.table
-  tr
-    th
-      | Название
-    th
-      | Адрес
-    th
-      | Комментарий
-    th
-      | Действия
-    th
-    th
-  - @suppliers.each do |supplier|
+.container-fluid
+  h1
+    | Список поставщиков
+  table.table
     tr
-      td
-        = supplier.title
-      td
-        = supplier.address
-      td
-        = supplier.comment
-      td
-          = link_to 'Показать', supplier_path(supplier), class: 'btn btn-default'
-      td
-          = link_to 'Изменить', edit_supplier_path(supplier), class: 'btn btn-default'
-      td
-          = link_to 'Удалить', supplier_path(supplier), method: :delete, data: {confirm: 'Are you sure?'}, class: 'btn btn-default'
-= link_to 'Создать поставщика' , new_supplier_path, class: 'btn btn-default'
+      th
+        | Название
+      th
+        | Адрес
+      th
+        | Комментарий
+      th
+        | Действия
+      th
+      th
+    - @suppliers.each do |supplier|
+      tr
+        td
+          = supplier.title
+        td
+          = supplier.address
+        td
+          = supplier.comment
+        td
+            = link_to 'Показать', supplier_path(supplier), class: 'btn btn-info'
+        td
+            = link_to 'Изменить', edit_supplier_path(supplier), class: 'btn btn-warning'
+        td
+            = link_to 'Удалить', supplier_path(supplier), method: :delete, data: {confirm: 'Are you sure?'}, class: 'btn btn-danger'
+  = link_to 'Создать поставщика' , new_supplier_path, class: 'btn btn-success'

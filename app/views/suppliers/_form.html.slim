@@ -1,14 +1,19 @@
-= simple_form_for @supplier do |f|
-    - if @supplier.errors.any?
-      #error_explanation
-      h4
-        = pluralize(@supplier.errors.count, "error")
-        |  prohibited this product from being saved: 
-      ul
-        - @supplier.errors.full_messages.each do |msg|
-          li
-            = msg
-    = f.input :title, label: 'Название' , placeholder: 'Название компании'
-    = f.input :address, label: 'Адрес', placeholder: 'Адрес регистрации компании поставщика'
-    = f.input :comment, label: 'Комментарий', placeholder: 'Комментарий о поставщике'
-    = f.button :submit, 'Создать', class: 'btn btn-default'
+.container-fluid
+  = simple_form_for @supplier do |f|
+      - if @supplier.errors.any?
+        #error_explanation
+        h4
+          = pluralize(@supplier.errors.count, "error")
+          |  prohibited this product from being saved: 
+        ul
+          - @supplier.errors.full_messages.each do |msg|
+            li
+              = msg
+      .form-group
+      = f.input :title, label: 'Название' , placeholder: 'Название компании'
+      .form-group
+      = f.input :address, label: 'Адрес', placeholder: 'Адрес регистрации компании поставщика'
+      .form-group
+      = f.input :comment, label: 'Комментарий', placeholder: 'Комментарий о поставщике'
+      .form-group
+      = f.button :submit, 'Создать', class: 'btn btn-success'

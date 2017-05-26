@@ -1,35 +1,36 @@
-form
-= simple_form_for @product do |f|
-    - if @product.errors.any?
-      #error_explanation
-      h2
-        = pluralize(@product.errors.count, "error")
-        |  prohibited this product from being saved: 
-      ul
-        - @product.errors.full_messages.each do |msg|
-          li
-            = msg
-    .form-group
-      = f.input :title, label: "Название продукта", placeholder: "Введите продукт"
-    .form-group
-      = f.input :quantity, label: "Количество", placeholder: "Введите количество продукта"
-    .form-group
-      = f.input :price, label: "Цена", placeholder: "Введите цену продукта"
-    .form-group
-      = f.label '* Еденица измерения'
-      = f.collection_select :unit, Product.units.keys, :to_s, :titlecase, {prompt: "Выберите еденицу измерения"}, {class: "form-control"}
-    .form-group
-      = f.input :comment, label: "Комментарий", placeholder: "Введите ваш комментарий"
-    .form-group
-      = f.label '* Поставщик'
-      = f.collection_select :supplier_id, Supplier.all, :id, :title, {prompt: "Выберите поставщика"}, {class: "form-control"}
-    .form-group
-      = f.label '* Заказчик'
-      = f.collection_select :customer_id, Customer.all, :id, :title, {prompt: "Выберите заказчика товара"}, {class: "form-control"}
-    .form-group
-      -unless current_page?('/products/new')
-        -unless @product.aasm_state == "delivered"
-          = f.label ' Статус продукта'
-          = f.select :aasm_state, @product.aasm.states(:permitted => true).map(&:name), {prompt: "Выберите поставщика"}, {class: "form-control"}
-    .form-group
-    = f.button :submit, 'Принять', class: 'btn btn-default'
+.container-fluid
+  form
+  = simple_form_for @product do |f|
+      - if @product.errors.any?
+        #error_explanation
+        h3
+          = pluralize(@product.errors.count, "error")
+          |  prohibited this product from being saved: 
+        ul
+          - @product.errors.full_messages.each do |msg|
+            li
+              = msg
+      .form-group
+        = f.input :title, label: "Название продукта", placeholder: "Введите продукт"
+      .form-group
+        = f.input :quantity, label: "Количество", placeholder: "Введите количество продукта"
+      .form-group
+        = f.input :price, label: "Цена", placeholder: "Введите цену продукта"
+      .form-group
+        = f.label '* Еденица измерения'
+        = f.collection_select :unit, Product.units.keys, :to_s, :titlecase, {prompt: "Выберите еденицу измерения"}, {class: "form-control"}
+      .form-group
+        = f.input :comment, label: "Комментарий", placeholder: "Введите ваш комментарий"
+      .form-group
+        = f.label '* Поставщик'
+        = f.collection_select :supplier_id, Supplier.all, :id, :title, {prompt: "Выберите поставщика"}, {class: "form-control"}
+      .form-group
+        = f.label '* Заказчик'
+        = f.collection_select :customer_id, Customer.all, :id, :title, {prompt: "Выберите заказчика товара"}, {class: "form-control"}
+      .form-group
+        -unless current_page?('/products/new')
+          -unless @product.aasm_state == "delivered"
+            = f.label ' Статус продукта'
+            = f.select :aasm_state, @product.aasm.states(:permitted => true).map(&:name), {prompt: "Выберите поставщика"}, {class: "form-control"}
+      .form-group
+      = f.button :submit, 'Принять', class: 'btn btn-success'

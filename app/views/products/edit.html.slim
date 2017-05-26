@@ -1,6 +1,8 @@
-h1
-  | Изменить продукт
+.container-fluid
+	h1
+	  | Изменить продукт
 .form-group
-	= render 'form' 
-.form-group
-		= link_to 'Отменить изменения', products_path, class: 'btn btn-default'
+	= render 'form'
+.container-fluid
+	.form-group
+			= link_to 'Отменить изменения', products_path, class: 'btn btn-warning'

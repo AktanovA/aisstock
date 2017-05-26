@@ -1,51 +1,52 @@
-form
-.form-group
-  p
-    strong
-      | Название:
-    = @product.title
-.form-group
-  p
-    strong
-      | Количество:
-    = @product.quantity
-.form-group
-  p
-    strong
-      | Цена:
-    = @product.price
-.form-group
-  p
-    strong
-      | Сумма:
-    = @product.totalprice
-.form-group
-  p
-    strong
-      | Еденица измерения:
-    = @product.unit
-.form-group
-  p
-    strong
-      | Комментарий:
-    = @product.comment
-.form-group
-  p
-    strong
-      | Поставщик:
-    = @product.supplier.title
-.form-group
-  p
-    strong
-      | Заказчик:
-    = @product.customer.title
-.form-group
-  p
-    strong
-      | Статус продукта:
-    = @product.aasm.current_state
-.form-group
-  = link_to 'Изменить', edit_product_path, class: 'btn btn-default'
-  br
-  = link_to 'Вернуться ко всему списку', products_path, class: 'btn btn-default'
+.container-fluid
+  form
+  .form-group
+    p
+      strong
+        | Название:
+      = @product.title
+  .form-group
+    p
+      strong
+        | Количество:
+      = @product.quantity
+  .form-group
+    p
+      strong
+        | Цена:
+      = @product.price
+  .form-group
+    p
+      strong
+        | Сумма:
+      = @product.totalprice
+  .form-group
+    p
+      strong
+        | Еденица измерения:
+      = @product.unit
+  .form-group
+    p
+      strong
+        | Комментарий:
+      = @product.comment
+  .form-group
+    p
+      strong
+        | Поставщик:
+      = @product.supplier.title
+  .form-group
+    p
+      strong
+        | Заказчик:
+      = @product.customer.title
+  .form-group
+    p
+      strong
+        | Статус продукта:
+      = @product.aasm.current_state
+  .form-group
+    = link_to 'Изменить', edit_product_path, class: 'btn btn-warning'
+    '
+    = link_to 'Вернуться ко всему списку', products_path, class: 'btn btn-info'
 

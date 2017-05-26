@@ -1,14 +1,16 @@
-p
-  strong
-    | Название:
-  = @supplier.title
-p
-  strong
-    | Адрес:
-  = @supplier.address
-p
-  strong
-    | Комментарий:
-  = @supplier.comment
-= link_to 'Изменить', edit_supplier_path, class: 'btn btn-default'
-= link_to 'Вернутся назад', suppliers_path, class: 'btn btn-default'
+.container-fluid
+	p
+	  strong
+	    | Название:
+	  = @supplier.title
+	p
+	  strong
+	    | Адрес:
+	  = @supplier.address
+	p
+	  strong
+	    | Комментарий:
+	  = @supplier.comment
+	= link_to 'Изменить', edit_supplier_path, class: 'btn btn-warning'
+	'
+	= link_to 'Вернутся назад', suppliers_path, class: 'btn btn-info'	
